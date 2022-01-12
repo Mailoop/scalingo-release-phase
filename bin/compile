@@ -3,14 +3,5 @@
 
 BUILD_DIR=$1
 
-echo "-----> Disk usage before"
-du -h $BUILD_DIR | sort -rh | head -20
-
-echo "-----> Deleting the node_modules directory"
-rm -r $BUILD_DIR/node_modules
-
-echo "-----> Deleting the nodejs.sh startup script"
-rm $BUILD_DIR/.profile.d/nodejs.sh
-
-echo "-----> Disk usage after"
-du -h $BUILD_DIR | sort -rh | head -20
+echo "-----> Run migration"
+rake db:migrate
