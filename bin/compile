@@ -4,4 +4,4 @@
 BUILD_DIR=$1
 
 echo "-----> Run migration"
-rake db:migrate
+cd $BUILD_DIR && rake db:migrate
